@@ -15,22 +15,22 @@ project(YOUR PROJECT NAME HERE)
 # EX) MyProject
 
 include_directories(
-	${CMAKE_CURRENT_SOURCE_DIR}/headers
-	${CMAKE_CURRENT_SOURCE_DIR}/libs/includes
+    ${CMAKE_CURRENT_SOURCE_DIR}/headers
+    ${CMAKE_CURRENT_SOURCE_DIR}/libs/includes
 )
 
 file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/sources/*.cpp")
 
 add_executable(${PROJECT_NAME}
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
-	${SRC_FILES}
+    ${SRC_FILES}
 )
 
 target_link_libraries(
-	${PROJECT_NAME}
+    ${PROJECT_NAME}
 
-	PRIVATE
-		"-lopengl32"
-		"${CMAKE_CURRENT_SOURCE_DIR}/libs/binaries/glfw/libglfw3dll.a"
-		"${CMAKE_CURRENT_SOURCE_DIR}/libs/binaries/glew/glew32.lib"
+    PRIVATE
+        "-lopengl32"
+        "${CMAKE_CURRENT_SOURCE_DIR}/libs/binaries/glfw/libglfw3dll.a"
+        "${CMAKE_CURRENT_SOURCE_DIR}/libs/binaries/glew/glew32.lib"
 )
