@@ -4,13 +4,15 @@
 cmake_minimum_required(VERSION 3.11)
 
 set(MINGW_PATH "YOUR MINGW-W64 BIN PATH HERE")
+# EX) "C:/Program Files/MinGW-w64/bin"
 
 set(CMAKE_CXX_COMPILER "${MINGW_PATH}/g++.exe")
 set(CMAKE_MAKE_PROGRAM "${MINGW_PATH}/mingw32-make.exe")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
-project(YOUR PROJECT_NAME HERE)
+project(YOUR PROJECT NAME HERE)
+# EX) MyProject
 
 include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/headers
