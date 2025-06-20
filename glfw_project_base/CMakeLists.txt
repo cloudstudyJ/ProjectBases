@@ -1,27 +1,23 @@
-# glfw: 3.4.0
-# glew: 2.1.0
-
 cmake_minimum_required(VERSION 3.11)
 
-set(MINGW_PATH "YOUR MINGW-W64 BIN PATH HERE")
-# EX) "C:/Program Files/MinGW-w64/bin"
-
-set(CMAKE_CXX_COMPILER "${MINGW_PATH}/g++.exe")
-set(CMAKE_MAKE_PROGRAM "${MINGW_PATH}/mingw32-make.exe")
-
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR})
 
 project(YOUR PROJECT NAME HERE)
-# EX) MyProject
+
+file(
+    GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
+    ${CMAKE_CURRENT_SOURCE_DIR}/sources/*.cpp
+)
 
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/headers
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/includes
 )
 
-file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/sources/*.cpp")
+add_executable(
+    ${PROJECT_NAME}
 
-add_executable(${PROJECT_NAME}
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
     ${SRC_FILES}
 )
